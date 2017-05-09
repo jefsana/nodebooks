@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="http://localhost:3000/nodebooks/">Início</a></li>
+							<li><a href="http://localhost:3000/nodebooks/acervo/">Acervo de Livros</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+				<section id="intro" class="wrapper style1 fullscreen fade-up">
+					<div class="inner">
+						<h1>NODEBOOKS</h1>
+				
+						<ul class="actions">
+							<li><a href="http://localhost:3000/nodebooks/cadastro/" class="button scrolly">Novo Livro</a></li>
+						</ul>
+
+						<ul class="actions">
+							<li><a>Livros Encontrados</a></li>
+						</ul>
+
+						<table border="1">
+							<tr>
+								<th>#</th>
+								<th>Título</th>
+								<th>Categoria</th>
+								<th>Páginas</th>
+								<th>Autor</th>
+								<th>Editora</th>
+								<th>Ano</th>
+							</tr>
+
+							{% for item in livros %}
+
+								<tr>
+									<td><a href="http://localhost:3000/api/livros/remove/{{item._id}}"><img src="/lixeira.png" width="32px" height="32px"></a></td>
+									<td><a href="http://localhost:3000/nodebooks/alteracao/{{item._id}}">{{ item.titulo }}</a></td>
+									<td>{{ item.categoria }}</td>
+									<td>{{ item.paginas }}</td>
+									<td>{{ item.autor }}</td>
+									<td>{{ item.editora }}</td>
+									<td>{{ item.ano }}</td>
+								</tr>
+
+							{% endfor %}
+						</table>
+					</div>
+				</section>
+
+				
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; JeAndrade & HTML5 UP. Todos os direitos reservados.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/jquery.min.js"></script>
+			<script src="/jquery.scrollex.min.js"></script>
+			<script src="/jquery.scrolly.min.js"></script>
+			<script src="/skel.min.js"></script>
+			<script src="/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/main.js"></script>
+
+	</body>
+</html>

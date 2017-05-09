@@ -1,0 +1,24 @@
+{
+  "name": "nodebooks",
+  "version": "1.0.0",
+  "description": "Crud de Livros em NodeJS",
+  "main": "./bin/www.js",
+  "scripts": {
+    "start": "node_modules/nodemon/bin/nodemon.js ./bin/www.js",
+    "test": "export DEBUG=curso:* && node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/*.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongojs": "^2.4.0",
+    "nunjucks": "^3.0.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  }
+}

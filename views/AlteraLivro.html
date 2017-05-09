@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Hyperspace by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="/main.css" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="http://localhost:3000/nodebooks/">Início</a></li>
+							<li><a href="http://localhost:3000/nodebooks/acervo/">Acervo de Livros</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Intro -->
+				<section id="intro" class="wrapper style1 fullscreen fade-up">
+					
+					<div class="inner">
+						<h1>NODEBOOKS</h1>
+
+						<ul class="actions">
+							<li><a href="http://localhost:3000/nodebooks/cadastro/" class="button scrolly">Novo Livro</a></li>
+						</ul>
+
+						<ul class="actions">
+							<li><a>Alteração do Livro: {{ livros.titulo }}</a></li>
+						</ul>
+					</div>
+				
+
+					<form method="post" action="/api/livros/alter/{{ livros._id }}">	
+				
+						<input type="hidden" name="id" value="{{ livros._id }}">
+
+						<table>
+				    		<tr>
+								<th>Título</th>
+								<td><input type="text" name="titulo" value="{{ livros.titulo }}"></td>
+							</tr>
+							
+							<tr>
+								<th>Páginas</th>
+								<td><input type="text" name="paginas" value="{{ livros.paginas }}"></td>
+							</tr>
+
+			                <tr>                    
+			                	<th>Categoria</th>
+			                	 <td><input type="text" name="categoria" value="{{ livros.categoria }}"></td>
+							</tr>
+
+							<tr>
+								<th>Autor</th>
+								<td><input type="text" name="autor" value="{{ livros.autor }}"></td>
+							</tr>
+
+							<tr>
+								<th>Editora</th>
+								<td><input type="text" name="editora" value="{{ livros.editora }}"></td>
+							</tr>
+
+							<tr>
+								<th>Ano</th>
+								<td><input type="text" name="ano" value="{{ livros.ano }}"></td>
+							</tr>
+
+							<tr>
+								<td>&nbsp;</td>
+								<td><input type="submit" name="Atualizar" value="Atualizar"></td>
+							</tr>
+						</table>
+
+					</form>
+		
+					<p id="message"></p>
+
+					<script type="text/javascript">
+						$('form').on('submit', function(event){
+							event.preventDefault();
+							
+							$.ajax({
+								url: $(this).attr('action'),
+								data: $(this).serialize(),
+								type: 'POST' //Ação delete,insert,update
+							})
+
+							.then(function(data){
+								console.log(data);
+
+								$('#message').html('Alterado com Sucesso!!!');
+							})
+
+							.fail(function(err){
+								console.error(err);
+							});
+
+						});
+					</script>
+				
+				</section>
+
+			</div>
+
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; JeAndrade & HTML5 UP. Todos os direitos reservados.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="/jquery.min.js"></script>
+			<script src="/jquery.scrollex.min.js"></script>
+			<script src="/jquery.scrolly.min.js"></script>
+			<script src="/skel.min.js"></script>
+			<script src="/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/main.js"></script>
+
+	</body>
+</html>
