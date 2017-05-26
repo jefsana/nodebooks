@@ -1,18 +1,18 @@
 'use strict'
 
 
-//A primeira coisa que é preciso fazer é importar o módulo express 
+//A primeira coisa que é preciso fazer é importar o módulo express
 //e criar um app.
 let express = require('express');
 let app = express();
 
-/*Nunjucks implementa um lexer completo e parser 
-que gera um AST, e um compilador que compila-lo a 
+/*Nunjucks implementa um lexer completo e parser
+que gera um AST, e um compilador que compila-lo a
 javascript bruto.*/
 let nunjucks = require('nunjucks');
 
 
-/*O express.bodyParser() é uma função que facilita a construção de objetos 
+/*O express.bodyParser() é uma função que facilita a construção de objetos
 JSON apartir de uma submissão de dados de um formulário html.*/
 let bodyParser = require('body-parser');
 app.use(bodyParser());
@@ -49,12 +49,10 @@ app.use(express.static('public/assets/sass/'));
 app.use(express.static('public/assets/css/images/'));
 app.use(express.static('public/images/'));
 
-/*Em seguida temos que informar o servidor para escutar uma dada porta. 
-Abaixo foi chamado o método listen(3000) do nosso objeto app que tenta 
-criar um servidor e vinculá-lo à porta 3000. A porta pode ser qualquer 
+/*Em seguida temos que informar o servidor para escutar uma dada porta.
+Abaixo foi chamado o método listen(3000) do nosso objeto app que tenta
+criar um servidor e vinculá-lo à porta 3000. A porta pode ser qualquer
 uma que você escolher, por exemplo a porta 80 padrão usando listen(80).*/
-app.listen(3000, function(){
-	console.log('app na porta 3000');
-});
+
 
 module.exports = app
